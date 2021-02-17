@@ -10,7 +10,9 @@
 
 
 import {LitElement, html, css} from 'lit-element';
-import './shared-styles.js';
+
+import '@polymer/paper-checkbox/paper-checkbox.js';
+import '@polymer/iron-form/iron-form.js';
 import {litStyles} from './lit-styles.js';
 
 class MyView1 extends LitElement {
@@ -28,12 +30,13 @@ class MyView1 extends LitElement {
   render() {
     return html`
 
-      <div class="card">
-        <div class="circle">1</div>
-        <h1>View One</h1>
-        <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-        <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
-      </div>
+    <iron-form>
+      <form method="GET" action="/form/handler">
+        <input type="text" name="name" value="Batman">
+        <input type="checkbox" name="donuts" checked> I like donuts<br>
+        <paper-checkbox name="cheese" value="yes" checked></paper-checkbox>
+      </form>
+    </iron-form>
     `;
   }
 }
