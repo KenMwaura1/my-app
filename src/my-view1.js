@@ -29,14 +29,15 @@ class MyView1 extends LitElement {
   }
   render() {
     return html`
-
-    <iron-form>
-      <form method="GET" action="/form/handler">
-        <input type="text" name="name" value="Batman">
-        <input type="checkbox" name="donuts" checked> I like donuts<br>
-        <paper-checkbox name="cheese" value="yes" checked></paper-checkbox>
-      </form>
-    </iron-form>
+    <div class="card">
+      <iron-form>
+        <form method="GET" action="/form/handler">
+          <input type="text" name="name" value="Batman">
+          <input type="checkbox" name="donuts" checked> I like donuts<br>
+          <paper-checkbox name="cheese" value="yes" checked></paper-checkbox>
+        </form>
+      </iron-form>
+    </div>
     `;
   }
 }
