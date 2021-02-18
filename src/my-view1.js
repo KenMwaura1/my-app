@@ -18,7 +18,7 @@ import {litStyles} from './lit-styles.js';
 class MyView1 extends LitElement {
   static get styles() {
     return [
-      litStyles,
+      litStyles, 
       css `
       host {
         display: block; 
@@ -29,12 +29,30 @@ class MyView1 extends LitElement {
   }
   render() {
     return html`
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <div class="card">
       <iron-form>
         <form method="GET" action="/form/handler">
-          <input type="text" name="name" value="Batman">
-          <input type="checkbox" name="donuts" checked> I like donuts<br>
-          <paper-checkbox name="cheese" value="yes" checked></paper-checkbox>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="email" placeholder="Email">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="password" placeholder="Password">
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          <button class="is-danger"> yo</button>
         </form>
       </iron-form>
     </div>

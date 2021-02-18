@@ -1,6 +1,8 @@
 import {css} from 'lit-element';
 
+
 export const litStyles = css `
+
 .card {
     margin: 24px;
     padding: 16px;
@@ -21,10 +23,19 @@ export const litStyles = css `
     font-size: 30px;
     line-height: 64px;
   }
+  .input-field {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        align-items: flex-start;
+        flex: 1;
+        padding: 5px;
+        
+      }
 
   h1 {
     margin: 16px 0;
     color: #212121;
     font-size: 22px;
+
   }`;
-  
