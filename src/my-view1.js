@@ -36,8 +36,8 @@ class MyView1 extends LitElement {
           <input type="text" name="name" value="Batman" class="input-field">
           <input type="checkbox" name="donuts" checked> I like donuts<br>
           <paper-checkbox name="cheese" value="yes" checked></paper-checkbox>
-          <button class="button is-danger is-outlined"">Danger</button>
-          <button is-danger is-loading"> </button>
+          <button class="button is-danger is-outlined">Danger</button>
+          <button class="button is-danger is-loading">Loading</button>
         </form>
       </iron-form>
     </div>
@@ -47,3 +47,4 @@ class MyView1 extends LitElement {
 }
 
 customElements.define('my-view1', MyView1);
+
