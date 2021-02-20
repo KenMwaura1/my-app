@@ -22,7 +22,7 @@ class MyView2 extends PolymerElement {
         }
       </style>
 
-      <div class="card">
+      <div class="card"> 
         <div class="circle">2</div>
         <h1>View Two</h1>
         <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
