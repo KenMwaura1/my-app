@@ -33,29 +33,15 @@ class MyView1 extends LitElement {
     <div class="card">
       <iron-form>
         <form method="GET" action="/form/handler">
-          <div class="field">
-            <p class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email">
-              <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
-              </span>
-            </p>
-          </div>
-          <div class="field">
-            <p class="control has-icons-left">
-              <input class="input" type="password" placeholder="Password">
-              <span class="icon is-small is-left">
-                <i class="fas fa-lock"></i>
-              </span>
-            </p>
-          </div>
-          <button class="is-danger"> yo</button>
+          <input type="text" name="name" value="Batman" class="input-field">
+          <input type="checkbox" name="donuts" checked> I like donuts<br>
+          <paper-checkbox name="cheese" value="yes" checked></paper-checkbox>
+          <button class="button is-danger is-outlined"">Danger</button>
+          <button is-danger is-loading"> </button>
         </form>
       </iron-form>
     </div>
+    
     `;
   }
 }
