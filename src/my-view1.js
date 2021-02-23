@@ -30,16 +30,50 @@ class MyView1 extends LitElement {
   render() {
     return html`
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <div class="card">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="card-1"> 
       <iron-form>
         <form method="GET" action="/form/handler">
-          <input type="text" name="name" value="Batman" class="input-field">
-          <input type="checkbox" name="donuts" checked> I like donuts<br>
-          <paper-checkbox name="cheese" value="yes" checked></paper-checkbox>
-          <button class="button is-danger is-outlined">Danger</button>
-          <button class="button is-danger is-loading">Loading</button>
+          <section class="section">
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control has-icons-right">
+                  <input class="input" type="text">
+                  <span class="icon is-small is-right">
+                    <i class="fa fa-user"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-right">
+                  <input class="input" type="text">
+                  <span class="icon is-small is-right">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control has-icons-right">
+                  <input class="input" type="password">
+                  <span class="icon is-small is-right">
+                    <i class="fa fa-key"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="has-text-centered">
+                <a class="button is-vcentered is-primary is-outlined">Sign Up!</a>
+              </div>
+              <div class="has-text-centered">
+                <a href="login.html"> Already have an account? Log in now !</a>
+              </div>
+            </section>
         </form>
       </iron-form>
+      <div id="particles-js" class="interactive-bg column is-8">
+
+      </div>
     </div>
     
     `;
