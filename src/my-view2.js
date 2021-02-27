@@ -8,28 +8,75 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+// import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import {LitElement, html, css } from 'lit-element'
+import '@polymer/paper-input/paper-input.js';
+import '@polymer/paper-spinner/paper-spinner.js';
+import '@polymer/paper-button/paper-button.js';
+import '@polymer/paper-checkbox/paper-checkbox.js';
+import '@polymer/iron-form/iron-form.js';
 import './shared-styles.js';
+import { litStyles } from './lit-styles'; 
 
-class MyView2 extends PolymerElement {
-  static get template() {
-    return html`
-      <style include="shared-styles">
-        :host {
-          display: block;
 
-          padding: 10px;
-        }
-      </style>
-
-      <div class="card"> 
-        <div class="circle">2</div>
-        <h1>View Two</h1>
-        <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-        <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
-      </div>
-    `;
+class MyView2 extends LitElement {
+  static get styles() {
+    return [
+      litStyles,
+      css `
+      :host {
+        display: block;
+        padding: 10px
+      }
+      `
+    ]
+  } 
+  static get properties() {
+    return {
+      name:{type: String},
+      animal:{type: String},
+    };
   }
-}
+  constructor() {
+    super();
+    this.animal = this.animal; 
+    this.addEventListener('form5.submit', this.submitForm.bind(this));
+  }
+    submitForm() {
+      let name = this.querySelector('.name');
+      console.log(this);
+    }
+
+
+  render() {
+      return html`
+        <div class="card">       
+            <iron-form id="form5">
+              <form method="GET" action="/foo" novalidate>
+                <paper-input name="name" label="Name" class="name" id="name" required>[[name]]</paper-input>
+                <cats-only name="cats"></cats-only>
+                <input name="animal" placeholder="animal" required value="meerkat"><br>
+                <paper-checkbox name="cheese" required>Cheese</paper-checkbox>
+                <br>
+                <paper-button raised onclick="submitForm">Submit</paper-button>
+                <paper-button raised onclick="form5.reset()">Reset</paper-button>
+              </form>
+            <div class="output"></div>
+          </iron-form>
+          <script>
+            form5.addEventListener('iron-form-submit', function(event) {
+              this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+            });
+            submitForm:function() {
+              document.getElementById('iron-form').submit();
+              console.log(this.name)
+            }
+          </script>
+        </div> 
+      `;
+    }
+    
+  }
+
 
 window.customElements.define('my-view2', MyView2);

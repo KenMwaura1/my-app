@@ -31,54 +31,64 @@ class MyView1 extends LitElement {
     return html`
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <div class="card-1"> 
-      <iron-form>
-        <form method="GET" action="/form/handler">
-          <section class="section">
-            <div class="field">
-                <label class="label">Username</label>
-                <div class="control has-icons-right">
-                  <input class="input" type="text">
-                  <span class="icon is-small is-right">
-                    <i class="fa fa-user"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="field">
-                <label class="label">Email</label>
-                <div class="control has-icons-right">
-                  <input class="input" type="text">
-                  <span class="icon is-small is-right">
-                    <i class="fa fa-envelope"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="field">
-                <label class="label">Password</label>
-                <div class="control has-icons-right">
-                  <input class="input" type="password">
-                  <span class="icon is-small is-right">
-                    <i class="fa fa-key"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="has-text-centered">
-                <a class="button is-vcentered is-primary is-outlined">Sign Up!</a>
-              </div>
-              <div class="has-text-centered">
-                <a href="login.html"> Already have an account? Log in now !</a>
-              </div>
-            </section>
-        </form>
-      </iron-form>
-      <div id="particles-js" class="interactive-bg column is-8">
-
+    <div class="columns is-vcentered">
+      <div class="login column is-4 ">
+        <section class="section">
+          <iron-form id="myForm">
+            <form method="GET" action="/form/handler">
+              
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control has-icons-right">
+                      <input class="input" type="text">
+                      <span class="icon is-small is-right">
+                        <i class="fa fa-user"></i>
+                      </span>
+                      <paper-input label="Name" value="Batman" name="name"></paper-input>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-right">
+                      <input class="input" type="text">
+                      <span class="icon is-small is-right">
+                        <i class="fa fa-envelope"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Phone Number</label>
+                    <div class="control has-icons-right">
+                      <input class="input" type="tel">
+                      <span class="icon is-small is-right">
+                        <i class="fa fa-phone"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="has-text-centered">
+                    <paper-button class="is-rounded button is-vcentered is-primary is-outlined" raised on-click="myForm.submit()">Submit</paper-button>
+                  </div>
+                  <div class="has-text-centered">
+                    <a href=""> Already have an account? Log in now !</a>
+                  </div>    
+              </form>
+              <br>
+                <div class="output"></div>
+              </br>
+            </iron-form>
+            <script>
+              myForm.addEventListener('iron-form-submit', function(event) {
+                this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+              });
+            </script>
+          </section>
       </div>
     </div>
-    
+
+      
     `;
   }
 }
-
+        
 customElements.define('my-view1', MyView1);
 
